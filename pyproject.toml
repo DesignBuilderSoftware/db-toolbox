@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "db-toolbox"
+version = "0.1.0"
+description = "Application includes various utilities for running DesignBuilder in batch and processing results."
+authors = ["voightp <vojtechpanek@seznam.cz>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+PySide6 = "^6.2.1"
+db-temperature-distribution = {git = "https://github.com/DesignBuilderSoftware/db-temperature-distribution.git"}
+
+
+[tool.poetry.dev-dependencies]
+black = "^21.10b0"
+flake8 = "^4.0.1"
+pylint = "^2.11.1"
+pytest = "^6.2.5"
+pre-commit = "^2.15.0"
+isort = "^5.10.0"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
