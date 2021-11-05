@@ -17,11 +17,11 @@ class MainWindow(QMainWindow):
         self.tab_widget = QTabWidget(self.central_widget)
         central_layout.addWidget(self.tab_widget)
 
-        self.temperature_dist_wgt = TemperatureDistWgt(self.tab_widget)
-        self.temperature_dist_wgt.html_path = Path(
-            Paths.energy_plus_dir, "eplusout.htm"
+        self.temperature_dist_wgt = TemperatureDistWgt(
+            self.tab_widget,
+            html_path=Path(Paths.energy_plus_dir, "eplustbl.htm"),
+            output_dir=Paths.energy_plus_dir,
         )
-        self.temperature_dist_wgt.output_dir = Paths.energy_plus_dir
 
         self.tab_widget.addTab(self.temperature_dist_wgt, "Temperature distribution")
         self.setMinimumSize(600, 400)

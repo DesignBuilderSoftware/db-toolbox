@@ -13,6 +13,13 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from db_toolobox.misc_widgets import IconSize
+
+
+class Paths:
+    design_builder_dir = Path(os.path.expandvars("%LOCALAPPDATA%/DesignBuilder"))
+    energy_plus_dir = Path(design_builder_dir, "EnergyPlus")
+
 
 def create_extension_string(extensions: Optional[List[str]]) -> str:
     """Create qt compatible extension string."""
@@ -119,6 +126,7 @@ class FileSelector(QWidget):
         self.label.setObjectName("pathLabel")
         self.button = QPushButton(self)
         self.button.setIcon(self.style().standardIcon(QStyle.SP_FileIcon))
+        self.button.setIconSize(IconSize.SMALL)
         self.button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self.button.clicked.connect(self.change_path)
         layout.addWidget(self.label)
@@ -178,6 +186,7 @@ class DirSelector(QWidget):
         self.label.setObjectName("pathLabel")
         self.button = QPushButton(self)
         self.button.setIcon(self.style().standardIcon(QStyle.SP_DirOpenIcon))
+        self.button.setIconSize(IconSize.SMALL)
         self.button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self.button.clicked.connect(self.change_directory)
         layout.addWidget(self.label)
@@ -200,8 +209,3 @@ class DirSelector(QWidget):
         if path and path != self.current_dir:
             self.current_dir = path
             self.directoryChanged.emit(path)
-
-
-class Paths:
-    design_builder_dir = Path(os.path.expandvars("%LOCALAPPDATA%/DesignBuilder"))
-    energy_plus_dir = Path(design_builder_dir, "EnergyPlus")

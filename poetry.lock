@@ -116,7 +116,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "db-temperature-distribution"
-version = "0.1.3"
+version = "0.1.4"
 description = ""
 category = "main"
 optional = false
@@ -130,7 +130,7 @@ eppy = "^0.5.56"
 type = "git"
 url = "https://github.com/DesignBuilderSoftware/db-temperature-distribution.git"
 reference = "master"
-resolved_reference = "94f704a6052ed1032048219764f163e21b95781e"
+resolved_reference = "1f804762f0585472773d4dccaf62bd853bd1e21c"
 
 [[package]]
 name = "decorator"
